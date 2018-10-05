@@ -1,14 +1,10 @@
 class Cell
 
-  def initialize(grid)
-    @grid = grid
-  end
-
-  def get_live_neighbours(coordinate)
+  def get_live_neighbours(cell_coordinate, grid)
     neighbours = []
-    get_neighbour_coordinates(coordinate).each do |coordinate|
+    get_neighbour_coordinates(cell_coordinate).each do |coordinate|
       if coordinate_inside_grid?(coordinate)
-        neighbours << @grid.grid[coordinate[0]][coordinate[1]]
+        neighbours << grid[coordinate[0]][coordinate[1]]
       end
     end
     count_live_cells(neighbours)
